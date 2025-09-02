@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --color-primary: #000000; /* black - Medical authority and sophisticated restraint */
+  --color-secondary: #FFFFFF; /* white - Clinical cleanliness and content clarity */
+  --color-accent: #E31E24; /* red-600 - Vital energy and critical action focus */
+  
+  /* Background Colors */
+  --color-background: #FAFAFA; /* gray-50 - Subtle warmth without clinical sterility */
+  --color-surface: #F5F5F5; /* gray-100 - Card depth and content separation */
+  
+  /* Text Colors */
+  --color-text-primary: #1A1A1A; /* gray-900 - Extended reading comfort and hierarchy */
+  --color-text-secondary: #666666; /* gray-500 - Supporting information and metadata */
+  
+  /* Status Colors */
+  --color-success: #22C55E; /* green-500 - Positive progress and completed actions */
+  --color-warning: #F59E0B; /* amber-500 - Attention without alarm or panic */
+  --color-error: #EF4444; /* red-500 - Clear concern with helpful guidance */
+  
+  /* Border Colors */
+  --color-border: #E5E5E5; /* gray-300 - Minimal borders for form inputs and content separation */
+  
+  /* Shadow Variables */
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-modal: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+  
+  /* Animation Variables */
+  --transition-fast: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-unfreezing: 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+  
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent text-secondary font-poppins font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-primary border border-border font-poppins font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-card;
+  }
+  
+  .card {
+    @apply bg-secondary rounded-lg shadow-card p-6 transition-all duration-300 hover:shadow-modal;
+  }
+  
+  .unfreezing-transition {
+    transition: all var(--transition-unfreezing);
+  }
+  
+  .clinical-border {
+    border: 1px solid var(--color-border);
+  }
+  
+  .accent-border {
+    border: 1px solid var(--color-accent);
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .transform-unfreezing {
+    transform: perspective(1000px) rotateX(0deg);
+    transition: transform var(--transition-unfreezing);
+  }
+  
+  .transform-unfreezing:hover {
+    transform: perspective(1000px) rotateX(5deg) translateY(-5px);
+  }
+}
